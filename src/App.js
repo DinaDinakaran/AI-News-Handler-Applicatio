@@ -16,9 +16,11 @@ const App = () => {
 
   useEffect(() => {
     alanBtn({
-      key: '64370f4c903e66c5b517887fefa45c1b2e956eca572e1d8b807a3e2338fdd0dc/stage',
+      key: 'b2f07b035932f6900d2739e93922bbf22e956eca572e1d8b807a3e2338fdd0dc/stage',
       onCommand: ({ command, articles, number }) => {
+      //console.log( command,articles)
         if (command === 'newHeadlines') {
+         // console.log( articles)
           setNewsArticles(articles);
           setActiveArticle(-1);
         } else if (command === 'instructions') {
@@ -32,6 +34,7 @@ const App = () => {
           if (parsedNumber > articles.length) {
             alanBtn().playText('Please try that again...');
           } else if (article) {
+           // console.log(article)
             window.open(article.url, '_blank');
             alanBtn().playText('Opening...');
           } else {
@@ -51,18 +54,19 @@ const App = () => {
             <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
           </div>
         ) : null}
-        <img src="https://alan.app/voice/images/previews/preview.jpg" className={classes.alanLogo} alt="logo" />
+        <img  src="https://voicebot.ai/wp-content/uploads/2019/10/alan.jpg" className={classes.alanLogo} alt="logo" />
       </div>
       <NewsCards articles={newsArticles} activeArticle={activeArticle} />
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
       {!newsArticles.length ? (
         <div className={classes.footer}>
           <Typography variant="body1" component="h2">
-            Created by
-            <a className={classes.link} href="https://www.linkedin.com/in/adrian-hajdin/"> Adrian Hajdin</a> -
-            <a className={classes.link} href="http://youtube.com/javascriptmastery"> JavaScript Mastery</a>
+            Created by {"   "}
+           
+            <span className="footer__copy" >
+            &#169;dinakaran .All rights reserved
+        </span>
           </Typography>
-          <img className={classes.image} src={logo} height="50px" alt="JSMastery logo" />
         </div>
       ) : null}
     </div>

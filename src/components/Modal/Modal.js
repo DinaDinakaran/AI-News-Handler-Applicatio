@@ -13,7 +13,11 @@ const Modal = ({ isOpen, setIsOpen, showFeedback }) => {
     e.preventDefault();
 
     emailjs.sendForm('gmail', 'alan_ai', e.target, 'user_dhVImkgxaL27bxQ8pLPQ5')
-      .then((result) => { console.log(result.text); }, (error) => { console.log(error.text); });
+      .then((result) => { 
+       // console.log(result.text); 
+      }, (error) => {
+         console.log(error.text); 
+        });
   };
 
   if (isOpen && showFeedback) {
